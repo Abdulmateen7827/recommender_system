@@ -2,3 +2,5 @@
 # pandas
 # numpy
 # mlflow==2.5.0
+# sklearn
+# dataclasses
