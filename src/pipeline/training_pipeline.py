@@ -71,6 +71,3 @@ class ModelTrainer:
         except Exception as e:
             raise CustomException(e,sys)
     
-if __name__=="__main__":
-    obj = ModelTrainer()
-    obj.initialize_training()
