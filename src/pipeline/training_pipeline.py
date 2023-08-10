@@ -12,6 +12,7 @@ logging.info("Trainer")
 class ModelTrainerConfig:
     model_pkl_path: str=os.path.join('./artifacts','model.pkl')
     model_h5_path: str=os.path.join('./artifacts','model.h5')
+    model_matrix: str=os.path.join('./artifacts','model_m.pkl')
 
 
 class CreateNN(tf.keras.models.Sequential):
@@ -59,15 +60,31 @@ class ModelTrainer:
         try:
             logging.info("Training>>>>>......")
             tf.random.set_seed(1)
-            logging.info("",model.fit([user_train[:, 1:], item_train[:, 1:]], y_train, epochs=epochs,batch_size=batch_size))
             model.fit([user_train[:, 1:], item_train[:, 1:]], y_train, epochs=epochs,batch_size=batch_size)
             
 
             logging.info('Saving trained model')
             save_object(self.model_config.model_pkl_path,model)
-
-
-
         except Exception as e:
             raise CustomException(e,sys)
+        
+    def dist_matrix(self,num_item_ft):
+        try:
+            logging.info('Matrix of distance between movies')
+
+            input_item_m = tf.keras.layers.Input(shape=(num_item_ft))
+            vm_m = ItemNN(num_outputs=32)(input_item_m) # use the trained item_NN
+            vm_m = tf.linalg.l2_normalize(vm_m, axis=1)  # incorporate normalization as was done in the original model
+            model_m = tf.keras.Model(input_item_m, vm_m)  
+
+            save_object(self.model_config.model_matrix,model_m)
+            logging.info("Saved dist_matrix")
+        except Exception as e:
+            raise CustomException(e,sys)
+
+    
+
+
+
+
     
