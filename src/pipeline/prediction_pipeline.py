@@ -6,6 +6,8 @@ from src.components.data_transformation import DataTransformation
 from numpy import genfromtxt
 
 
+class PredictPipeline:
+    pass
 logging.info("Testing....")
 transform = DataTransformation()
 model = load_object('artifacts/model_m.pkl')

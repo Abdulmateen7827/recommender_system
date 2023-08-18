@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommender</title>
+</head>
+<body>
+    <h1>Movie Recommender</h1>
+    <form method="post">
+        <p>Enter your movie preferences or user ID:</p>
+        <input type="text" name="user_input">
+        <input type="submit" value="Get Recommendations">
+    </form>
+    <h2>Recommended Movies:</h2>
+    <ul>
+        {% for movie in recommendations %}
+        <li>{{ movie }}</li>
+    </ul>
+</body>
+</html>

@@ -11,9 +11,13 @@ from src.utils import load_data
 from sklearn.model_selection import train_test_split
 from src.components.data_transformation import DataTransformation
 from src.pipeline.training_pipeline import ModelTrainer
+import mlflow
 
 
 
+
+mlflow.set_experiment("Recommender system")
+mlflow.tensorflow.autolog()
 @dataclass
 class DataIngestionConfig:
     logging.info('Initiating data config')

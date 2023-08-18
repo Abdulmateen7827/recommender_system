@@ -6,6 +6,7 @@ import os
 import sys
 import pickle
 from src.utils import save_object
+import mlflow
 
 logging.info("Trainer")
 @dataclass

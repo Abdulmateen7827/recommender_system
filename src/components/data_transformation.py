@@ -35,7 +35,7 @@ class DataTransformation:
             self.scalerUser.fit(unscaled_U_train)
             scaled_user_train = self.scalerUser.transform(unscaled_U_train)
             scaled_user_test = self.scalerUser.transform(unscaled_U_test)
-            self.scalerTarget.fit(unscaled_y_train)
+            self.scalerTarget.fit(unscaled_y_train.reshape(-1,1))
             scaled_y_train = self.scalerTarget.transform(unscaled_y_train.reshape(-1,1))
             scaled_y_test = self.scalerTarget.transform(unscaled_y_test.reshape(-1,1))
 
