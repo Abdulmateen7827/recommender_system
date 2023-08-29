@@ -14,7 +14,11 @@ from src.pipeline.training_pipeline import ModelTrainer
 import mlflow
 
 
-
+#For remote server(DAGSHUB)
+# remote_server_uri = 'https://dagshub.com/Abdulmateen7827/recommender_system.mlflow'
+# mlflow.set_tracking_uri(remote_server_uri)
+mlflow.set_tracking_uri('http://127.0.0.1:5000')
+# mlflow.log_param("path",'data')
 
 mlflow.set_experiment("Recommender system")
 mlflow.tensorflow.autolog()
@@ -79,7 +83,7 @@ if __name__=="__main__":
     train = ModelTrainer()
     logging.info("Begin train")
     model = train.initialize_training(num_user_features=Utrain.shape[1]-1,num_item_features=Itrain.shape[1]-1,learning_rate=0.01)
-    train.train(batch_size=len(Utrain),user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=30)
+    train.train(batch_size=128,user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=30)
     train.dist_matrix(num_item_ft=Itrain.shape[1]-1)
 
 
