@@ -10,8 +10,8 @@ application = Flask(__name__)
 app = application
 
 
-with open('artifacts/model.pkl','rb') as m:
-    model = pickle.load(m)
+# with open('artifacts/model.pkl','rb') as m:
+#     model = pickle.load(m)
 
 @app.route('/predict', methods=['POST'])
 def predict_endpoint():
@@ -39,11 +39,11 @@ def predict_endpoint():
         data = [user_id,action,adventure,animation,childrens,comedy,crime,documentary,drama,fantasy,horror,mystery,romance,scifi,thriller,film_Noir,musical,war,western]
         data = np.array(data)
 
-        model = PredictPipeline()
-        return(model.predict(user_id = data))
+        # model = PredictPipeline()
+        # return(model.predict(user_id = data))
 
     except Exception as e:
         raise CustomException(e,sys)
         
 if __name__=="__main__":
-    app.run(debug=True,host="0.0.0.0", port = 9696)
+    app.run(host="0.0.0.0", port = 9696)
