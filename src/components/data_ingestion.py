@@ -80,7 +80,11 @@ if __name__=="__main__":
     logging.info("Begin train")
     model = train.initialize_training(num_user_features=Utrain.shape[1]-1,num_item_features=Itrain.shape[1]-1,learning_rate=0.01)
 <<<<<<< HEAD
+<<<<<<< HEAD
     train.train(batch_size=128,user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=3)
+=======
+    train.train(batch_size=len(Utrain),user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=30)
+>>>>>>> parent of d8d7152 (Web service)
 =======
     train.train(batch_size=len(Utrain),user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=30)
 >>>>>>> parent of d8d7152 (Web service)
