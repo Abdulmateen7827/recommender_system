@@ -1,12 +1,3 @@
 {
-    "liveServer.settings.port": 5501,
-    "terminal.integrated.profiles.osx": {
-        "Bash": {
-            "path": "/bin/bash",
-            "args": []
-        }
-    },
-    "terminal.integrated.defaultProfile.osx": "Bash"
-    
-
+    "liveServer.settings.port": 5501
 }

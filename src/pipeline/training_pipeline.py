@@ -20,7 +20,6 @@ class CreateNN(tf.keras.models.Sequential):
     logging.info("Creating NN")
     def __init__(self,num_outputs):
         super().__init__()
-        self.add(tf.keras.layers.Dense(512,activation='relu'))
         self.add(tf.keras.layers.Dense(256,activation='relu'))
         self.add(tf.keras.layers.Dense(128,activation='relu'))
         self.add(tf.keras.layers.Dense(num_outputs))
@@ -64,10 +63,9 @@ class ModelTrainer:
             tf.random.set_seed(1)
             model.fit([user_train[:, 1:], item_train[:, 1:]], y_train, epochs=epochs,batch_size=batch_size)
             
-        
+
             logging.info('Saving trained model')
             save_object(self.model_config.model_pkl_path,model)
-            # mlflow.log_artifacts(self.model_config.model_pkl_path,model)
         except Exception as e:
             raise CustomException(e,sys)
         
