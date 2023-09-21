@@ -83,7 +83,7 @@ if __name__=="__main__":
     train = ModelTrainer()
     logging.info("Begin train")
     model = train.initialize_training(num_user_features=Utrain.shape[1]-1,num_item_features=Itrain.shape[1]-1,learning_rate=0.01)
-    train.train(batch_size=128,user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=30)
+    train.train(batch_size=128,user_train=Utrain,item_train=Itrain,model=model,y_train=y_train,epochs=3)
     train.dist_matrix(num_item_ft=Itrain.shape[1]-1)
 
 
