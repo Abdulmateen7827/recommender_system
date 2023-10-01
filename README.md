@@ -1,3 +1,4 @@
-# Hybrid recommender_system
+# Recommender_system
 
-Collaborative filtering and Content based filtering recommender engine
+
+ Content based filtering recommender engine
