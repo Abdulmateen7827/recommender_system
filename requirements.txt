@@ -1,7 +1,8 @@
-# tensorflow
-# pandas
-# numpy
-# mlflow
-# sklearn
-# dataclasses
+tensorflow
+pandas
+numpy
+mlflow
+scikit-learn
+dataclasses
 dvc
+fastapi

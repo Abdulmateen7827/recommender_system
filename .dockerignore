@@ -1,0 +1,22 @@
+# Ignore version control directories
+.git
+.svn
+# Ignore temporary or build files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+# Ignore virtual environment directories
+venv
+env
+# Ignore IDE-specific directories
+.idea
+.vscode
+# Exclude additional folders
+logs/
+data/
+notebook/
+notebooks/
+
+

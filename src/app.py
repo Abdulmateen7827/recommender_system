@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import numpy as np
 import pickle
-from src.pipeline.prediction_pipeline import PredictPipeline
+# from src.pipeline.prediction_pipeline import PredictPipeline
 from src.exception import CustomException
 import sys
 
@@ -10,8 +10,8 @@ application = Flask(__name__)
 app = application
 
 
-# with open('artifacts/model.pkl','rb') as m:
-#     model = pickle.load(m)
+with open('artifacts/model.pkl','rb') as m:
+    model = pickle.load(m)
 
 @app.route('/predict', methods=['POST'])
 def predict_endpoint():
@@ -40,7 +40,7 @@ def predict_endpoint():
         data = np.array(data)
 
         # model = PredictPipeline()
-        # return(model.predict(user_id = data))
+        return(model.predict(user_id = data))
 
     except Exception as e:
         raise CustomException(e,sys)

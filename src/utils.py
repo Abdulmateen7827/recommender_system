@@ -7,22 +7,26 @@ import numpy as np
 
 def load_data():
     item_train = genfromtxt(
-        './notebooks/data/ml-latest-small/content_item_train.csv', delimiter=',')
+        'notebooks/data/content_item_train.csv', delimiter=',')
     user_train = genfromtxt(
-        'notebooks/data/ml-latest-small/content_user_train.csv', delimiter=',')
+        'notebooks/data/content_user_train.csv', delimiter=',')
     y_train = genfromtxt(
-        'notebooks/data/ml-latest-small/content_y_train.csv', delimiter=',')
+        'notebooks/data/content_y_train.csv', delimiter=',')
 
     return item_train,user_train,y_train,
     
 def load_items():
     item_vecs = genfromtxt(
-        'notebooks/data/ml-latest-small/item_vecs.csv', delimiter=',')
+        'notebooks/data/content_item_vecs.csv', delimiter=',')
     return item_vecs
 def load_item_train():
     item= genfromtxt(
         './notebooks/data/ml-latest-small/content_item_train.csv', delimiter=',')
     return item
+def load_user_train():
+    user = genfromtxt(
+        'notebooks/data/ml-latest-small/content_user_train.csv', delimiter=',')
+    return user
 def save_object(file_path, obj):
     try:
         dir_path = os.path.dirname(file_path)
@@ -55,4 +59,9 @@ def sq_dist(a,b):
     """  
     d = np.sum(np.square(a-b))
     return d
-    
+
+def gen_user_vecs(user_vec, num_items):
+    """ given a user vector return:
+        user predict maxtrix to match the size of item_vecs """
+    user_vecs = np.tile(user_vec, (num_items, 1))
+    return(user_vecs)
