@@ -29,6 +29,7 @@ docker run --rm -p 80:80 rec_sys
 
 {
   "user_id": 5,
+  "rating_ave": 0.0,
   "action": 5.0,
   "adventure": 0.0,
   "animation": 0.0,
@@ -43,10 +44,8 @@ docker run --rm -p 80:80 rec_sys
   "romance": 0.0,
   "scifi": 5.0,
   "thriller": 0.0,
-  "film_Noir": 0.0,
-  "musical": 0.0,
-  "war": 0.0,
-  "western": 0.0
+  "rating_count":0
+
 }
 ```
 
