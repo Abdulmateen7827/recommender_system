@@ -14,6 +14,7 @@ def read_root():
 
 class Rec(BaseModel):
         user_id : int
+        rating_ave : float
         action : float
         adventure : float
         animation : float
@@ -28,10 +29,7 @@ class Rec(BaseModel):
         romance : float
         scifi : float
         thriller : float 
-        film_Noir : float 
-        musical : float 
-        war : float
-        western : float
+        rating_count : int
 
 
 # @app.on_event('startup')
@@ -40,7 +38,7 @@ class Rec(BaseModel):
 #     with open('artifacts/model.pkl', 'rb') as file:
 #         model = pickle.load(file)
 global predict
-predict = PredictPipeline()
+prd = PredictPipeline()
 
 @app.post("/predict")
 def predict(rec: Rec):
@@ -48,6 +46,7 @@ def predict(rec: Rec):
           [
                [
                     rec.user_id,
+                    rec.rating_ave,
                     rec.action,
                     rec.adventure,
                     rec.animation,
@@ -58,20 +57,16 @@ def predict(rec: Rec):
                     rec.drama,
                     rec.fantasy,
                     rec.horror,
-                    rec.fantasy,
                     rec.mystery,
                     rec.romance,
                     rec.scifi,
                     rec.thriller,
-                    rec.film_Noir,
-                    rec.musical,
-                    rec.war,
-                    rec.western
+                    rec.rating_count
                ]
           ]
      )
-    pred = predict.predict(data_point)
-    # print(pred)
+    pred = prd.get_predict(data_point)
+
     return pred
 
 
