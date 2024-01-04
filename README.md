@@ -51,7 +51,7 @@ docker run --rm -p 80:80 rec_sys
 
 ## Tracking with Mlflow
 The recommender system was tracked and monitored with mlflow.
-![Sample Image](data/image.png)
+![alt text](https://github.com/Abdulmateen7827/recommender_system/blob/e2689f2f980986e01833377f8c1d18b6795e895f/data/image.png)
 
 
 
