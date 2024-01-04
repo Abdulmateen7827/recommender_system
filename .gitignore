@@ -30,7 +30,6 @@ artifacts/
 mlruns/ 
 logs/
 mlartifacts/
-data/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
