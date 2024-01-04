@@ -51,9 +51,9 @@ docker run --rm -p 80:80 rec_sys
 
 ## Tracking with Mlflow
 The recommender system was tracked and monitored with mlflow.
-![Alt text](data/Screenshot 2023-09-26 at 16.24.01.png)
+![Sample Image](data/image.png)
 
-## Data versioning with DVC
+
 
 ## Deployment
 The model was deployed with fastpi and containerized using docker for inference 
